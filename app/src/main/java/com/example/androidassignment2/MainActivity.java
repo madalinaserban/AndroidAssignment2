@@ -23,6 +23,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button setAlarmButton = findViewById(R.id.btn_setAlarm);
+        setAlarmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open a new activity or dialog to set the alarm
+                Intent intent = new Intent(MainActivity.this, SetAlarmActivity.class);
+                startActivity(intent);
+            }
+        });
         mCustomClockView = findViewById(R.id.customClock);
         mDigitalTimeTextView = findViewById(R.id.tv_digitalTime);
 
@@ -52,4 +62,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
