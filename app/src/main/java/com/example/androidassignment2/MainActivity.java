@@ -2,12 +2,17 @@ package com.example.androidassignment2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,16 +28,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        Button setAlarmButton = findViewById(R.id.btn_setAlarm);
-        setAlarmButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Open a new activity or dialog to set the alarm
-                Intent intent = new Intent(MainActivity.this, SetAlarmActivity.class);
-                startActivity(intent);
-            }
-        });
         mCustomClockView = findViewById(R.id.customClock);
         mDigitalTimeTextView = findViewById(R.id.tv_digitalTime);
 
@@ -61,7 +59,34 @@ public class MainActivity extends AppCompatActivity {
                 mDigitalTimeTextView.setText(time);
             }
         });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_items, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        Log.d("Main","A ajuns aici");
+
+        if (id == R.id.action_set_timer) {
+            openAddAlarmActivity();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void openAddAlarmActivity() {
+        Intent intent = new Intent(this, SetAlarmActivity.class);
+        startActivity(intent);
     }
 
 
 }
+
