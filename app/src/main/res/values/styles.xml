@@ -4,4 +4,10 @@
         <item name="android:textSize">25sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="TimePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/yellow</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>
