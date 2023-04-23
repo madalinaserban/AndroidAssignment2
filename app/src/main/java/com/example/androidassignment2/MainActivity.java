@@ -72,10 +72,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        Log.d("Main","A ajuns aici");
+        Log.d("Main", "A ajuns aici");
 
         if (id == R.id.action_set_timer) {
             openAddAlarmActivity();
+            return true;
+        }
+        if (id == R.id.action_view_alarms) {
+            openViewAlarmsActivity();
             return true;
         }
 
@@ -85,6 +89,12 @@ public class MainActivity extends AppCompatActivity {
     private void openAddAlarmActivity() {
         Intent intent = new Intent(this, SetAlarmActivity.class);
         startActivity(intent);
+    }
+
+    private void openViewAlarmsActivity() {
+        Intent intent = new Intent(this, AlarmListActivity.class);
+        startActivity(intent);
+
     }
 
 

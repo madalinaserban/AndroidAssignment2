@@ -2,15 +2,12 @@ package com.example.androidassignment2;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,10 +32,10 @@ public class SetAlarmActivity extends AppCompatActivity {
         timePicker = findViewById(R.id.timePicker);
         saveButton = findViewById(R.id.saveButton);
 
-        Intent intent = new Intent(getApplicationContext(), Alarm.class);
+        Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
         // Generate a unique identifier for the new alarm
         long uniqueId = System.currentTimeMillis();
-        Log.d(TAG, " " + uniqueId);
+        Log.d(TAG," "+uniqueId);
         intent.putExtra("uniqueId", uniqueId); // Add uniqueId as an extra
         pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), (int) uniqueId, intent, PendingIntent.FLAG_IMMUTABLE);
 
@@ -56,6 +53,7 @@ public class SetAlarmActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt("alarm_hour_" + uniqueId, hour);
                 editor.putInt("alarm_minute_" + uniqueId, minute);
+                editor.putBoolean("alarm_on_"+uniqueId,true);
                 editor.apply();
 
                 // Set the alarm

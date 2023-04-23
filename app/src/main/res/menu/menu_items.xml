@@ -1,11 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_set_timer"
-        android:title="Set Timer" />
+        android:title="Set New Timer" />
     <item
-        android:id="@+id/action_update_timer"
-        android:title="Update Timer" />
-    <item
-        android:id="@+id/action_view_timer"
-        android:title="View Timer" />
+        android:id="@+id/action_view_alarms"
+        android:title="View Timers" />
 </menu>
