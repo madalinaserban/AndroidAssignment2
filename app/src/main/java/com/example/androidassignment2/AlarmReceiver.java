@@ -72,7 +72,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             alarmManager.setExact(AlarmManager.RTC, timeInMillis, pendingIntent);
             alarmManager.cancel(pendingIntent);
-           sharedPreferences.edit().putBoolean("alarm_on" + uniqueId, false).apply();
+           sharedPreferences.edit().putBoolean("alarm_on_" + uniqueId, false).apply();
         }
     }
 }
