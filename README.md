@@ -1,10 +1,10 @@
-##Android Assignment 2 Serban Elena Madalina
+## Android Assignment 2 Serban Elena Madalina
 
 Aceasta este o aplicație Android pentru a seta și opri alarme. 
 Aplicația utilizează o listă de alarme pentru a afișa toate alarmele setate și oferă utilizatorului posibilitatea de a adăuga noi alarme sau de a opri alarmele existente.
 Utilizam un SurfaceView pentru a vizualiza ceasul sub forma de animatie.
 
-#Funcționalități
+# Funcționalități
 
 Vizualizarea timpului curent sub forma de animatie. Avem 3 linii : pentru ore minute si secunde cu grosimi si lungimi diferite care se rotesc conform timpului curent.
 Aplicația utilizează Runnable pentru a actualiza animația.
