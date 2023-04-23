@@ -14,16 +14,12 @@ public class CustomClockView extends SurfaceView implements Runnable {
     private float mMinuteAngle;
     private float mSecondAngle;
     private Paint mPaint = new Paint();
-
-    // Variables for the clock dimensions
+    
     private int mWidth;
     private int mHeight;
     private int mRadius;
     private int mCenterX;
     private int mCenterY;
-
-    // Constants for the clock update interval and clock markers
-    private static final int INTERVAL = 1000;
 
     public CustomClockView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -69,7 +65,7 @@ public class CustomClockView extends SurfaceView implements Runnable {
         canvas.drawCircle(mCenterX, mCenterY, mRadius, mPaint);
         drawClockMarkers(canvas);
         drawHands(canvas);
-        postInvalidateDelayed(INTERVAL);
+        postInvalidateDelayed(1000);
     }
 
     void drawClockMarkers(Canvas canvas) {
